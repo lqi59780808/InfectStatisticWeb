@@ -128,11 +128,10 @@ public class InfectStatistic {
 		statistic = new HashMap<String,String>();
 		if(dateTime != null && fileArray[fileArray.length - 1] .getName().compareTo(dateTime + ".log.txt") < 0) //如果超出比较范围
 		{
-			System.out.println("指定的日期超出了日志最新日期，请检查");
-			System.exit(0);
+			dateTime = null;
 		}
 		
-		else if(fileArray[0] .getName().compareTo(dateTime + ".log.txt") > 0) //如果比最早一天还早的日期，直接结束调用，并进入输出方法即可
+		else if(dateTime != null && fileArray[0] .getName().compareTo(dateTime + ".log.txt") > 0) //如果比最早一天还早的日期，直接结束调用，并进入输出方法即可
 		{
 			return; 
 		}
@@ -160,6 +159,33 @@ public class InfectStatistic {
 	{
 		try 
 		{
+			/*BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileArray[fileCount]),"gbk"));
+			String str;
+			while((str = br.readLine()) != null)
+			{
+				String[] strarr = str.split("\\s");
+
+				for(int i = 0 ; i < strarr.length ; i++)
+				{
+					if (strarr[i].equals("//")||strarr[i].equals(""))
+						break;
+					
+					else fileContent.add(strarr[i]);
+				}
+			}		
+			br.close();*/
+			/*InputStream inputStream = new FileInputStream(fileArray[fileCount]);    
+			 byte[] head = new byte[3];    
+			 inputStream.read(head);      
+			 String code = "";    
+			 code = "gbk";    
+			 if (head[0] == -1 && head[1] == -2 )    
+			           code = "UTF-16";    
+			 if (head[0] == -2 && head[1] == -1 )    
+			           code = "Unicode";    
+			 if(head[0]==-17 && head[1]==-69 && head[2] ==-65)    
+			           code = "UTF-8";       
+			 System.out.println(code);	*/		
 			Scanner sc  = new Scanner(fileArray[fileCount],"UTF-8");
 			while(sc.hasNext())
 			{
@@ -170,8 +196,8 @@ public class InfectStatistic {
 				else fileContent.add(str);
 			}					      
 			sc.close();
-		} 
-		
+			
+		} 		
 		catch (Exception e) 
 		{
 			System.out.println("读取文件出错，请检查日志目录是否合理");
@@ -561,9 +587,12 @@ public class InfectStatistic {
 	
 	public static void main(String args[]) throws IOException
     {
-		readList(args);
+		String shuru = "D:/log/";
+		String shuchu = "D:/output.txt";
+		String[] str = {"list","-log", shuru , "-out", shuchu};
+		readList(str);
 		readDirect();  //开始查询日志文件
-		outPut(args);
+		outPut(str);
 		
     	return;
     }

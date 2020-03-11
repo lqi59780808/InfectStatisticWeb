@@ -1,5 +1,4 @@
 package infectEmpl;
-
 import java.util.*;
 import java.io.*;
 import java.text.Collator;
@@ -23,11 +22,13 @@ public class InfectMap extends InfectStatistic {
 		return array;
 	}
 	
-	public static Map<String , String> allStatistic (String type)
+	public static Map<String, Object> allStatistic ()
 	{
 		String shuru = "D:/log/";
 		String shuchu = "D:/output.txt";
 		String[] str = {"list","-log", shuru , "-out", shuchu};
+		for(String a : str)
+			System.out.println(a);
 		readList(str);
 		readDirect();
 		String allProvin[] = {"北京","天津","河北","辽宁","吉林","黑龙江","山东","江苏","上海","浙江","安徽","福建",
@@ -40,7 +41,18 @@ public class InfectMap extends InfectStatistic {
 				initStatistic(allProvin[i]);
 			}
 		}
-		Map<String , String> map = statistic;
-		return map;
+		sortMap = sortHashkey();
+		for(String key : sortMap.keySet())
+		{
+				System.out.println(key+" "+statistic.get(key));  //避免在最后多出一行			
+		}
+		return sortMap;
+		
+	}
+	
+	public static void main(String args[])
+	{
+		allStatistic();
+		return;
 	}
 }
