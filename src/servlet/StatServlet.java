@@ -1,16 +1,21 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import infectEmpl.InfectMap;
+
 /**
  * Servlet implementation class StatServlet
  */
-@WebServlet("/StatServlet")
+@WebServlet("/statServlet")
 public class StatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +32,25 @@ public class StatServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String flag = request.getParameter("flag");
+		String date = request.getParameter("date");
+		if(flag != null && flag.equals("mapStat"))
+		{
+			Map<String, String> stat = InfectMap.allStatistic(date);
+			request.setAttribute("stat", stat);
+		}
+		
+		else if(flag != null && flag.equals("mapStat"))
+		{
+			Map<String, String> stat = InfectMap.allStatistic(date);
+			request.setAttribute("stat", stat);
+		}
+		
+		else if(flag != null && flag.equals("mapStat"))
+		{
+			Map<String, String> stat = InfectMap.allStatistic(date);
+			request.setAttribute("stat", stat);
+		}
 	}
 
 	/**
