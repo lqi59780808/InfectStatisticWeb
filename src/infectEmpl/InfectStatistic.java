@@ -242,7 +242,7 @@ public class InfectStatistic {
 	{
 		String provin = fileContent.get(count);  //获取这条信息关联的省份
 		String type = fileContent.get(count + 2); //感染患者或者疑似患者
-		String str = fileContent.get(count + 3); ;
+		String str = fileContent.get(count + 3);
 		str = str.substring(0 , str.length() - 1); //截取人数
 		
 		if(!statistic.containsKey(provin + type)) //检查哈希表中是否已经存在该省份的数据了
