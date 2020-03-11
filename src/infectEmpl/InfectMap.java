@@ -7,6 +7,33 @@ public class InfectMap extends InfectStatistic {
 	
 	public static File filename;
 	public static String date;
+	
+	public static ArrayList<String> getDate()
+	{
+		String shuru = "D:/log/";
+		String shuchu = "D:/output.txt";
+		String[] str = {"list","-log", shuru , "-out", shuchu};
+		readList(str);
+		readDirect();
+		ArrayList<String> array = new ArrayList<String> ();	
+		for(int i = fileArray.length - 7 ; i < fileArray.length; i++)
+		{
+			if(i<0) continue;
+			else array.add(fileArray[i].getName().substring(0,10));
+		}
+		return array;
+	}
+	
+	public static String latestDate()
+	{
+		String shuru = "D:/log/";
+		String shuchu = "D:/output.txt";
+		String[] str = {"list","-log", shuru , "-out", shuchu};
+		readList(str);
+		readDirect();
+		return fileArray[fileArray.length - 1].getName().substring(0,10);
+	}
+	
 	public static void reading()
 	{
 		String shuru = "D:/log/";
