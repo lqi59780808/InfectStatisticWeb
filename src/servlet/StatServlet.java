@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,22 +35,17 @@ public class StatServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String flag = request.getParameter("flag");
 		String date = request.getParameter("date");
+		String province = request.getParameter("province");
 		if(flag != null && flag.equals("mapStat"))
 		{
 			Map<String, String> stat = InfectMap.allStatistic(date);
 			request.setAttribute("stat", stat);
 		}
-		
-		else if(flag != null && flag.equals("mapStat"))
+				
+		else if(flag != null && flag.equals("increase"))
 		{
-			Map<String, String> stat = InfectMap.allStatistic(date);
-			request.setAttribute("stat", stat);
-		}
-		
-		else if(flag != null && flag.equals("mapStat"))
-		{
-			Map<String, String> stat = InfectMap.allStatistic(date);
-			request.setAttribute("stat", stat);
+			ArrayList<String> increase = InfectMap.compare(province, date);
+			request.setAttribute("increase", increase);
 		}
 	}
 
