@@ -153,11 +153,11 @@
       
       <div id="u15" class="ax_default droplist">
         <div id="u15_div" class=""></div>
-        <form action="statServlet" method="get">
+        <form action="statServlet?flag=mapStat" method="get">
         <label for="meeting">约会日期：</label><input id="u15_input" class="u15_input" name="selected" type="date" value="2014-01-13"/>
-        </form>
-        
+        </form>       
       </div>
+      
       
       <!-- Unnamed (矩形) -->
       <div id="u5" class="ax_default label">
@@ -308,6 +308,6 @@
 		 myChart.on('click',function (params){
 			 if(params.name)
 			 window.location.href="statServlet?flag=increase&provin="+params.name;
-		 }
+		 })
         </script>      
 </html>
