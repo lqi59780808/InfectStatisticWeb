@@ -52,6 +52,8 @@ public class StatServlet extends HttpServlet {
 		{
 			ArrayList<String> increase = InfectMap.compare(province, selected);
 			request.setAttribute("increase", increase);
+			request.setAttribute("province", province);
+			request.getRequestDispatcher("湖北详情页.jsp").forward(request, response);
 		}
 	}
 
