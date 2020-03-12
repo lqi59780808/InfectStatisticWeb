@@ -1,4 +1,5 @@
-﻿<%@page import="java.util.ArrayList"%>
+﻿<%@page import="java.util.Map"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html;charset=utf-8"
     pageEncoding="utf-8" %>
 <!DOCTYPE html>
@@ -50,6 +51,8 @@
   </head>
   <body>
   <% ArrayList<String> in=(ArrayList)request.getAttribute("increase"); %>
+  <% Map<String,String> st = (Map)request.getAttribute("stat"); %>
+  <% String provin=(String)request.getAttribute("province"); %>
     <div id="base" class="">
 
       <!-- Unnamed (矩形) -->
@@ -80,7 +83,7 @@
       
        <div id="u3" class="ax_default _统计数据">
         <div id="u3_div" class=""></div>
-        <input id="u3_input" type="text" value=<%=request.getAttribute("1") %> class="u3_input"/>
+        <input id="u3_input" type="text" value=<%=st.get((String)provin+"感染患者") %> class="u3_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -104,7 +107,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u7" class="ax_default _统计数据">
         <div id="u7_div" class=""></div>
-        <input id="u7_input" type="text" value=<%=request.getAttribute("1") %> class="u7_input"/>
+        <input id="u7_input" type="text" value=<%=st.get((String)provin+"疑似患者") %> class="u7_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -134,7 +137,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u12" class="ax_default _统计数据">
         <div id="u12_div" class=""></div>
-        <input id="u12_input" type="text" value=<%=request.getAttribute("1") %> class="u12_input"/>
+        <input id="u12_input" type="text" value=<%=st.get((String)provin+"治愈") %> class="u12_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -152,7 +155,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u15" class="ax_default _统计数据">
         <div id="u15_div" class=""></div>
-        <input id="u15_input" type="text" value=<%=request.getAttribute("1") %> class="u15_input"/>
+        <input id="u15_input" type="text" value=<%=st.get((String)provin+"死亡") %> class="u15_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -274,8 +277,8 @@ option = {
         type: 'value'
     },
     series: [{
-        data: [<%=request.getAttribute("1") %>, <%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>,
-        	<%=request.getAttribute("1") %>, <%=request.getParameter() %>, <%=request.getParameter() %>],
+        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
+        	<%=1 %>, <%=1 %>, <%=1 %>],
         type: 'line'
     }]
 };
@@ -298,8 +301,8 @@ option = {
         type: 'value'
     },
     series: [{
-        data: [<%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>,
-        	<%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>],
+        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
+        	<%=1 %>, <%=1 %>, <%=1 %>],
         type: 'line'
     }]
 };
@@ -322,8 +325,8 @@ option = {
         type: 'value'
     },
     series: [{
-        data: [<%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>,
-        	<%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>],
+        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
+        	<%=1 %>, <%=1 %>, <%=1 %>],
         type: 'line'
     }]
 };
@@ -346,8 +349,8 @@ option = {
         type: 'value'
     },
     series: [{
-        data: [<%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>,
-        	<%=request.getParameter() %>, <%=request.getParameter() %>, <%=request.getParameter() %>],
+        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
+        	<%=1 %>, <%=1 %>, <%=1 %>],
         type: 'line'
     }]
 };
