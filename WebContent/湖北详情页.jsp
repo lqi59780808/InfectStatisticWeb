@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html;charset=utf-8"
+﻿<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html;charset=utf-8"
     pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
@@ -48,6 +49,7 @@
     </script>
   </head>
   <body>
+  <% ArrayList<String> in=(ArrayList)request.getAttribute("increase"); %>
     <div id="base" class="">
 
       <!-- Unnamed (矩形) -->
@@ -90,7 +92,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u5" class="ax_default _统计数据">
         <div id="u5_div" class=""></div>
-        <input id="u5_input" type="text" value=<%=request.getAttribute("1") %> class="u5_input"/>
+        <input id="u5_input" type="text" value=<%=in.get(0) %> class="u5_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -114,7 +116,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u9" class="ax_default _统计数据">
         <div id="u9_div" class=""></div>
-        <input id="u9_input" type="text" value=<%=request.getAttribute("1") %> class="u9_input"/>
+        <input id="u9_input" type="text" value=<%=in.get(1) %> class="u9_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -156,13 +158,13 @@
       <!-- Unnamed (文本框) -->
       <div id="u16" class="ax_default _统计数据">
         <div id="u16_div" class=""></div>
-        <input id="u16_input" type="text" value=<%=request.getAttribute("1") %> class="u16_input"/>
+        <input id="u16_input" type="text" value=<%=in.get(2) %> class="u16_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
       <div id="u17" class="ax_default _统计数据">
         <div id="u17_div" class=""></div>
-        <input id="u17_input" type="text" value=<%=request.getAttribute("1") %> class="u17_input"/>
+        <input id="u17_input" type="text" value=<%=in.get(3) %> class="u17_input"/>
       </div>
 
       <!-- Unnamed (动态面板) -->

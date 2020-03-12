@@ -1,4 +1,6 @@
-﻿<%@page import="java.util.Map"%>
+﻿
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html;charset=utf-8"
     pageEncoding="utf-8" %>
 <!DOCTYPE html>
@@ -49,7 +51,8 @@
     </script>
   </head>
   <body>
-
+  <% Map<String,String> st = (Map)request.getAttribute("stat"); %>
+<% ArrayList<String> in=(ArrayList)request.getAttribute("increase"); %>
     <div id="base" class="">
 
       <!-- Unnamed (组合) -->
@@ -109,7 +112,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u8" class="ax_default _统计数据">
         <div id="u8_div" class=""></div>
-        <input id="u8_input" type="text" value="36760" class="u8_input"/>
+        <input id="u8_input" type="text" value=<%=st.get("全国感染患者") %> class="u8_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -121,7 +124,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u10" class="ax_default _统计数据">
         <div id="u10_div" class=""></div>
-        <input id="u10_input" type="text" value="65914" class="u10_input"/>
+        <input id="u10_input" type="text" value=<%=st.get("全国疑似患者") %> class="u10_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -139,13 +142,13 @@
       <!-- Unnamed (文本框) -->
       <div id="u13" class="ax_default _统计数据">
         <div id="u13_div" class=""></div>
-        <input id="u13_input" type="text" value="26472" class="u13_input"/>
+        <input id="u13_input" type="text" value=<%=st.get("全国治愈") %> class="u13_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
       <div id="u14" class="ax_default _统计数据">
         <div id="u14_div" class=""></div>
-        <input id="u14_input" type="text" value="2682" class="u14_input"/>
+        <input id="u14_input" type="text" value=<%=st.get("全国死亡") %> class="u14_input"/>
       </div>
       
       <div id="u15" class="ax_default droplist">
@@ -170,7 +173,7 @@
   <script type="text/javascript" src="resources/scripts/echarts.min.js" ></script>
         <script type="text/javascript" src="resources/scripts/china.js" ></script>
         <script type="text/javascript" >
-        <% Map<String,String> st = (Map)request.getAttribute("stat"); %>
+        
 		function randomData() {  
      return Math.round(Math.random()*500);  
 } 
@@ -229,7 +232,7 @@
                     x: 'left',  
                     y: 'center',  
                     splitList: [   
-                        {start: 500, end:600},{start: 400, end: 500},  
+                        {start: 500, end: 600},{start: 400, end: 500},  
                         {start: 300, end: 400},{start: 200, end: 300},  
                         {start: 100, end: 200},{start: 0, end: 100},  
                     ],  
@@ -270,7 +273,7 @@
 	                    x: 'left',  
 	                    y: 'center',  
 	                    splitList: [   
-	                        {start: 500, end:600},{start: 400, end: 500},  
+	                        {start: 500, end: 600},{start: 400, end: 500},  
 	                        {start: 300, end: 400},{start: 200, end: 300},  
 	                        {start: 100, end: 200},{start: 0, end: 100},  
 	                    ],  
@@ -301,5 +304,10 @@
         //使用制定的配置项和数据显示图表
         myChart.setOption(optionMap);
 		myChart2.setOption(optionMap2);
-        </script>
+		
+		 myChart.on('click',function (params){
+			 if(params.name)
+			 window.location.href="statServlet?flag=increase&provin="+params.name;
+		 }
+        </script>      
 </html>
