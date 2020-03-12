@@ -80,7 +80,8 @@ public class InfectMap extends InfectStatistic {
 		{
 				System.out.println(key+" "+statistic.get(key));  //避免在最后多出一行			
 		}
-		return statistic;
+		Map<String, String> sta = statistic;
+		return sta;
 		
 	}
 	

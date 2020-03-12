@@ -49,6 +49,7 @@
     </script>
   </head>
   <body>
+
     <div id="base" class="">
 
       <!-- Unnamed (组合) -->
@@ -165,55 +166,53 @@
     </div>
     <script src="resources/scripts/axure/ios.js"></script>
     
-    <jsp:forward page="statServlet?flag=mapStat"></jsp:forward>
   </body>
   <script type="text/javascript" src="resources/scripts/echarts.min.js" ></script>
         <script type="text/javascript" src="resources/scripts/china.js" ></script>
         <script type="text/javascript" >
+        <% Map<String,String> st = (Map)request.getAttribute("stat"); %>
 		function randomData() {  
      return Math.round(Math.random()*500);  
 } 
-		<% Map<String, String> st=(Map)request.getAttribute("stat"); %>
 		var mydata = [  
-                {name: '北京',value: <%=st.get("北京感染患者") %> },{name: '天津',value: <%=st.get("天津感染患者") %> },  
-                {name: '上海',value: <%=st.get("上海感染患者") %> },{name: '重庆',value: <%=st.get("重庆感染患者") %> },  
-                {name: '河北',value: <%=st.get("河北感染患者") %> },{name: '河南',value: <%=st.get("海南感染患者") %> },  
-                {name: '云南',value: <%=st.get("云南感染患者") %> },{name: '辽宁',value: <%=st.get("辽宁感染患者") %> },  
-                {name: '黑龙江',value: <%=st.get("黑龙江感染患者") %> },{name: '湖南',value: <%=st.get("湖南感染患者") %> },  
-                {name: '安徽',value: <%=st.get("安徽感染患者") %> },{name: '山东',value: <%=st.get("山东感染患者") %> },  
-                {name: '新疆',value: <%=st.get("新疆感染患者") %> },{name: '江苏',value: <%=st.get("江苏感染患者") %> },  
-                {name: '浙江',value: <%=st.get("浙江感染患者") %> },{name: '江西',value: <%=st.get("江西感染患者") %> },  
-                {name: '湖北',value: <%=st.get("湖北感染患者") %> },{name: '广西',value: <%=st.get("广西感染患者") %> },  
-                {name: '甘肃',value: <%=st.get("甘肃感染患者") %> },{name: '山西',value: <%=st.get("山西感染患者") %> },  
-                {name: '内蒙古',value: <%=st.get("内蒙古感染患者") %> },{name: '陕西',value: <%=st.get("陕西感染患者") %> },  
-                {name: '吉林',value: <%=st.get("吉林感染患者") %> },{name: '福建',value: <%=st.get("福建感染患者") %> },  
-                {name: '贵州',value: <%=st.get("贵州感染患者") %> },{name: '广东',value: <%=st.get("广东感染患者") %> },  
-                {name: '青海',value: <%=st.get("青海感染患者") %> },{name: '西藏',value: <%=st.get("西藏感染患者") %> },  
-                {name: '四川',value: <%=st.get("四川感染患者") %> },{name: '宁夏',value: <%=st.get("宁夏感染患者") %> },  
-                {name: '海南',value: <%=st.get("海南感染患者") %> },{name: '台湾',value: <%=st.get("台湾感染患者") %> },  
-                {name: '香港',value: <%=st.get("香港感染患者") %> },{name: '澳门',value: <%=st.get("澳门感染患者") %> }  
-            ];
-		var mydata2 = [  
-            {name: '北京',value: <%=st.get("北京疑似患者") %> },{name: '天津',value: <%=st.get("天津疑似患者") %> },  
-            {name: '上海',value: <%=st.get("上海疑似患者") %> },{name: '重庆',value: <%=st.get("重庆疑似患者") %> },  
-            {name: '河北',value: <%=st.get("河北疑似患者") %> },{name: '河南',value: <%=st.get("河南疑似患者") %> },  
-            {name: '云南',value: <%=st.get("云南疑似患者") %> },{name: '辽宁',value: <%=st.get("辽宁疑似患者") %> },  
-            {name: '黑龙江',value: <%=st.get("黑龙江疑似患者") %> },{name: '湖南',value: <%=st.get("湖南疑似患者") %> },  
-            {name: '安徽',value: <%=st.get("安徽疑似患者") %> },{name: '山东',value: <%=st.get("山东疑似患者") %> },  
-            {name: '新疆',value: <%=st.get("新疆疑似患者") %> },{name: '江苏',value: <%=st.get("江苏疑似患者") %> },  
-            {name: '浙江',value: <%=st.get("浙江疑似患者") %> },{name: '江西',value: <%=st.get("江西疑似患者") %> },  
-            {name: '湖北',value: <%=st.get("湖北疑似患者") %> },{name: '广西',value: <%=st.get("广西疑似患者") %> },  
-            {name: '甘肃',value: <%=st.get("甘肃疑似患者") %> },{name: '山西',value: <%=st.get("山西疑似患者") %> },  
-            {name: '内蒙古',value: <%=st.get("内蒙古疑似患者") %> },{name: '陕西',value: <%=st.get("陕西疑似患者") %> },  
-            {name: '吉林',value: <%=st.get("吉林疑似患者") %> },{name: '福建',value: <%=st.get("福建疑似患者") %> },  
-            {name: '贵州',value: <%=st.get("贵州疑似患者") %> },{name: '广东',value: <%=st.get("广东疑似患者") %> },  
-            {name: '青海',value: <%=st.get("青海疑似患者") %> },{name: '西藏',value: <%=st.get("西藏疑似患者") %> },  
-            {name: '四川',value: <%=st.get("四川疑似患者") %> },{name: '宁夏',value: <%=st.get("宁夏疑似患者") %> },  
-            {name: '海南',value: <%=st.get("海南疑似患者") %> },{name: '台湾',value: <%=st.get("台湾疑似患者") %> },  
-            {name: '香港',value: <%=st.get("香港疑似患者") %> },{name: '澳门',value: <%=st.get("澳门疑似患者") %> }  
+            {name: '北京',value: <%=st.get("北京感染患者") %> },{name: '天津',value: <%=st.get("天津感染患者") %> },  
+            {name: '上海',value: <%=st.get("上海感染患者") %> },{name: '重庆',value: <%=st.get("重庆感染患者") %> },  
+            {name: '河北',value: <%=st.get("河北感染患者") %> },{name: '河南',value: <%=st.get("海南感染患者") %> },  
+            {name: '云南',value: <%=st.get("云南感染患者") %> },{name: '辽宁',value: <%=st.get("辽宁感染患者") %> },  
+            {name: '黑龙江',value: <%=st.get("黑龙江感染患者") %> },{name: '湖南',value: <%=st.get("湖南感染患者") %> },  
+            {name: '安徽',value: <%=st.get("安徽感染患者") %> },{name: '山东',value: <%=st.get("山东感染患者") %> },  
+            {name: '新疆',value: <%=st.get("新疆感染患者") %> },{name: '江苏',value: <%=st.get("江苏感染患者") %> },  
+            {name: '浙江',value: <%=st.get("浙江感染患者") %> },{name: '江西',value: <%=st.get("江西感染患者") %> },  
+            {name: '湖北',value: <%=st.get("湖北感染患者") %> },{name: '广西',value: <%=st.get("广西感染患者") %> },  
+            {name: '甘肃',value: <%=st.get("甘肃感染患者") %> },{name: '山西',value: <%=st.get("山西感染患者") %> },  
+            {name: '内蒙古',value: <%=st.get("内蒙古感染患者") %> },{name: '陕西',value: <%=st.get("陕西感染患者") %> },  
+            {name: '吉林',value: <%=st.get("吉林感染患者") %> },{name: '福建',value: <%=st.get("福建感染患者") %> },  
+            {name: '贵州',value: <%=st.get("贵州感染患者") %> },{name: '广东',value: <%=st.get("广东感染患者") %> },  
+            {name: '青海',value: <%=st.get("青海感染患者") %> },{name: '西藏',value: <%=st.get("西藏感染患者") %> },  
+            {name: '四川',value: <%=st.get("四川感染患者") %> },{name: '宁夏',value: <%=st.get("宁夏感染患者") %> },  
+            {name: '海南',value: <%=st.get("海南感染患者") %> },{name: '台湾',value: <%=st.get("台湾感染患者") %> },  
+            {name: '香港',value: <%=st.get("香港感染患者") %> },{name: '澳门',value: <%=st.get("澳门感染患者") %> }  
         ];
-		//确诊病例地图	
-		var optionMap = {  
+	var mydata2 = [  
+        {name: '北京',value: <%=st.get("北京疑似患者") %> },{name: '天津',value: <%=st.get("天津疑似患者") %> },  
+        {name: '上海',value: <%=st.get("上海疑似患者") %> },{name: '重庆',value: <%=st.get("重庆疑似患者") %> },  
+        {name: '河北',value: <%=st.get("河北疑似患者") %> },{name: '河南',value: <%=st.get("河南疑似患者") %> },  
+        {name: '云南',value: <%=st.get("云南疑似患者") %> },{name: '辽宁',value: <%=st.get("辽宁疑似患者") %> },  
+        {name: '黑龙江',value: <%=st.get("黑龙江疑似患者") %> },{name: '湖南',value: <%=st.get("湖南疑似患者") %> },  
+        {name: '安徽',value: <%=st.get("安徽疑似患者") %> },{name: '山东',value: <%=st.get("山东疑似患者") %> },  
+        {name: '新疆',value: <%=st.get("新疆疑似患者") %> },{name: '江苏',value: <%=st.get("江苏疑似患者") %> },  
+        {name: '浙江',value: <%=st.get("浙江疑似患者") %> },{name: '江西',value: <%=st.get("江西疑似患者") %> },  
+        {name: '湖北',value: <%=st.get("湖北疑似患者") %> },{name: '广西',value: <%=st.get("广西疑似患者") %> },  
+        {name: '甘肃',value: <%=st.get("甘肃疑似患者") %> },{name: '山西',value: <%=st.get("山西疑似患者") %> },  
+        {name: '内蒙古',value: <%=st.get("内蒙古疑似患者") %> },{name: '陕西',value: <%=st.get("陕西疑似患者") %> },  
+        {name: '吉林',value: <%=st.get("吉林疑似患者") %> },{name: '福建',value: <%=st.get("福建疑似患者") %> },  
+        {name: '贵州',value: <%=st.get("贵州疑似患者") %> },{name: '广东',value: <%=st.get("广东疑似患者") %> },  
+        {name: '青海',value: <%=st.get("青海疑似患者") %> },{name: '西藏',value: <%=st.get("西藏疑似患者") %> },  
+        {name: '四川',value: <%=st.get("四川疑似患者") %> },{name: '宁夏',value: <%=st.get("宁夏疑似患者") %> },  
+        {name: '海南',value: <%=st.get("海南疑似患者") %> },{name: '台湾',value: <%=st.get("台湾疑似患者") %> },  
+        {name: '香港',value: <%=st.get("香港疑似患者") %> },{name: '澳门',value: <%=st.get("澳门疑似患者") %> }  
+    ];
+			var optionMap = {  
                 backgroundColor: '#FFFFFF',  
                 title: {  
                     text: '全国地图大数据',  
@@ -252,11 +251,8 @@
                         }  
                     },  
                     data:mydata  //数据
-                }]
-                
-                }
-			
-			//疑似病例地图
+                }]  
+            };  
 			var optionMap2 = {  
 	                backgroundColor: '#FFFFFF',  
 	                title: {  
@@ -297,7 +293,7 @@
 	                    },  
 	                    data:mydata2  //数据
 	                }]  
-	            };  
+	            }; 
         //初始化echarts实例
         var myChart = echarts.init(document.getElementById('u1_state0'));
 		var myChart2 = echarts.init(document.getElementById('u1_state1'));
@@ -305,10 +301,5 @@
         //使用制定的配置项和数据显示图表
         myChart.setOption(optionMap);
 		myChart2.setOption(optionMap2);
-		
-		myChart.on('click', function (params){
-            if(params.name='新疆')
-            	window.open("湖北详情页.html");
-        }
         </script>
 </html>
