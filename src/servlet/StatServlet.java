@@ -41,8 +41,12 @@ public class StatServlet extends HttpServlet {
 		{
 			selected = InfectMap.latestDate();
 		}
-		if(flag != null && flag.equals("mapStat"))
+		else
 		{
+			selected = InfectMap.judgeDate(selected);
+		}
+		if(flag != null && flag.equals("mapStat"))
+		{		
 			Map<String, String> stat = InfectMap.allStatistic(selected);
 			request.setAttribute("stat", stat);
 			request.getRequestDispatcher("中国地图.jsp").forward(request, response);
@@ -50,6 +54,8 @@ public class StatServlet extends HttpServlet {
 						
 		else if(flag != null && flag.equals("increase"))
 		{
+			Map<String, String> stat = InfectMap.allStatistic(selected);
+			request.setAttribute("stat", stat);
 			ArrayList<String> increase = InfectMap.compare(province, selected);
 			request.setAttribute("increase", increase);
 			request.setAttribute("province", province);

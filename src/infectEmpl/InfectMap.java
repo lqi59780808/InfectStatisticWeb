@@ -6,12 +6,29 @@ import java.text.Collator;
 public class InfectMap extends InfectStatistic {
 	
 	public static File filename;
-	public static String date;
 	
-	public static void judgeDate(String date) 
+	public static String judgeDate(String date)
 	{
-		String str = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
+		if(date != null && fileArray[fileArray.length - 1] .getName().compareTo(dateTime + ".log.txt") < 0) //如果超出比较范围
+		{
+			date = latestDate();
+			return date;
+		}
+		
+		else if(dateTime != null && fileArray[0] .getName().compareTo(dateTime + ".log.txt") > 0) //如果比最早一天还早的日期，直接结束调用，并进入输出方法即可
+		{
+			return date;
+		}
+		else
+		for (int i = 0 ;i < fileArray.length - 1 ;i++) //检查用户指定日期是否在两个日志文件之间 比如 日志文件只有2020-01-22，2020-01-24，用户却指定2020-01-22
+		{
+			if(fileArray[i] .getName().compareTo(dateTime + ".log.txt") < 0 && fileArray[i + 1] .getName().compareTo(dateTime + ".log.txt") > 0)
+				date = fileArray[i] .getName().substring(0 , 10);
+			return date;
+		}
+		return date;
 	}
+
 	
 	public static ArrayList<String> getDate()
 	{
@@ -45,24 +62,12 @@ public class InfectMap extends InfectStatistic {
 		String shuchu = "D:/output.txt";
 		String[] str = {"list","-log", shuru , "-out", shuchu};
 		readList(str);
-		if(date != null)
-			dateTime = date;
 		readDirect();
-	}
-
-	public static ArrayList<String> oneStatistic (String province)
-	{
-		reading();
-		ArrayList<String> array = new ArrayList<String> ();
-		array.add(statistic.get(province + "感染患者"));
-		array.add(statistic.get(province + "疑似患者"));
-		array.add(statistic.get(province + "治愈"));
-		array.add(statistic.get(province + "死亡"));
-		return array;
 	}
 	
 	public static Map<String, String> allStatistic (String date)
 	{
+		dateTime = date;
 		reading();
 		String allProvin[] = {"北京","天津","河北","辽宁","吉林","黑龙江","山东","江苏","上海","浙江","安徽","福建",
 						"江西","广东","广西","海南","河南","湖南","湖北","山西","内蒙古","宁夏","青海","陕西","甘肃",
@@ -87,6 +92,7 @@ public class InfectMap extends InfectStatistic {
 	
 	public static ArrayList<String> compare(String province,String date) throws FileNotFoundException
 	{
+		dateTime = date;
 		reading();
 		ArrayList<String> array = new ArrayList<String> ();
 		for(int i = 0 ; i < 4 ; i ++)
