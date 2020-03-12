@@ -307,7 +307,7 @@
 		
 		 myChart.on('click',function (params){
 			 if(params.name)
-			 window.location.href="statServlet?flag=increase&provin="+params.name;
+			 window.location.href="statServlet?flag=increase&province="+params.name;
 		 })
         </script>      
 </html>

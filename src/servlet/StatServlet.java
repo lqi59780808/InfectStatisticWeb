@@ -45,6 +45,7 @@ public class StatServlet extends HttpServlet {
 		{
 			selected = InfectMap.judgeDate(selected);
 		}
+		request.setAttribute("date", selected);
 		if(flag != null && flag.equals("mapStat"))
 		{		
 			Map<String, String> stat = InfectMap.allStatistic(selected);

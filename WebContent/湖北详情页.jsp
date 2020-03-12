@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>湖北详情页</title>
+  <% String provin=(String)request.getAttribute("province"); %>
+    <title><%=provin %>详情页</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
@@ -52,7 +53,8 @@
   <body>
   <% ArrayList<String> in=(ArrayList)request.getAttribute("increase"); %>
   <% Map<String,String> st = (Map)request.getAttribute("stat"); %>
-  <% String provin=(String)request.getAttribute("province"); %>
+  <% String date=(String)request.getAttribute("date"); %>
+  
     <div id="base" class="">
 
       <!-- Unnamed (矩形) -->
@@ -69,7 +71,7 @@
       <div id="u1" class="ax_default label">
         <img id="u1_img" class="img " src="images/湖北详情页/regen/u1.svg"/>
         <div id="u1_text" class="text ">
-          <p><span>湖北疫情数据</span></p>
+          <p><span><%=provin %>疫情数据</span></p>
         </div>
       </div>
 
@@ -89,7 +91,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u4" class="ax_default _统计数据">
         <div id="u4_div" class=""></div>
-        <input id="u4_input" type="text" value="昨日" class="u4_input"/>
+        <input id="u4_input" type="text" value="昨日+" class="u4_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -113,7 +115,7 @@
       <!-- Unnamed (文本框) -->
       <div id="u8" class="ax_default _统计数据">
         <div id="u8_div" class=""></div>
-        <input id="u8_input" type="text" value="昨日" class="u8_input"/>
+        <input id="u8_input" type="text" value="昨日+" class="u8_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -143,13 +145,13 @@
       <!-- Unnamed (文本框) -->
       <div id="u13" class="ax_default _统计数据">
         <div id="u13_div" class=""></div>
-        <input id="u13_input" type="text" value="昨日" class="u13_input"/>
+        <input id="u13_input" type="text" value="昨日+" class="u13_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
       <div id="u14" class="ax_default _统计数据">
         <div id="u14_div" class=""></div>
-        <input id="u14_input" type="text" value="昨日" class="u14_input"/>
+        <input id="u14_input" type="text" value="昨日+" class="u14_input"/>
       </div>
 
       <!-- Unnamed (文本框) -->
@@ -257,7 +259,7 @@
      <div id="u27" class="ax_default droplist">
         <div id="u27_div" class=""></div>
         <form action="statServlet" method="get">
-        <label for="meeting">约会日期：</label><input id="u27_input" class="u27_input" name="selected" type="date" value="2014-01-13"/>
+        <label for="meeting">约会日期：</label><input id="u27_input" class="u27_input" name="selected" type="date" value=<%=date %>/>
         </form>
   </div>
     <script src="resources/scripts/axure/ios.js"></script>
