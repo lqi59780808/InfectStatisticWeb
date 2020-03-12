@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<%@page import="java.util.Map"%>
+<%@ page language="java" contentType="text/html;charset=utf-8"
+    pageEncoding="utf-8" %>
+<!DOCTYPE html>
 <html>
   <head>
     <title>中国地图</title>
@@ -168,27 +171,28 @@
 		function randomData() {  
      return Math.round(Math.random()*500);  
 } 
+		<% Map<String, String> st=(Map)request.getAttribute("stat"); %>
 		var mydata = [  
-                {name: '北京',value: <%=qzdata %> },{name: '天津',value: <%=qzdata %> },  
-                {name: '上海',value: <%=qzdata %> },{name: '重庆',value: <%=qzdata %> },  
-                {name: '河北',value: <%=qzdata %> },{name: '河南',value: <%=qzdata %> },  
-                {name: '云南',value: <%=qzdata %> },{name: '辽宁',value: <%=qzdata %> },  
-                {name: '黑龙江',value: <%=qzdata %> },{name: '湖南',value: <%=qzdata %> },  
-                {name: '安徽',value: <%=qzdata %> },{name: '山东',value: <%=qzdata %> },  
-                {name: '新疆',value: <%=qzdata %> },{name: '江苏',value: <%=qzdata %> },  
-                {name: '浙江',value: <%=qzdata %> },{name: '江西',value: <%=qzdata %> },  
-                {name: '湖北',value: <%=qzdata %> },{name: '广西',value: <%=qzdata %> },  
-                {name: '甘肃',value: <%=qzdata %> },{name: '山西',value: <%=qzdata %> },  
-                {name: '内蒙古',value: <%=qzdata %> },{name: '陕西',value: <%=qzdata %> },  
-                {name: '吉林',value: <%=qzdata %> },{name: '福建',value: <%=qzdata %> },  
-                {name: '贵州',value: <%=qzdata %> },{name: '广东',value: <%=qzdata %> },  
-                {name: '青海',value: <%=qzdata %> },{name: '西藏',value: <%=qzdata %> },  
-                {name: '四川',value: <%=qzdata %> },{name: '宁夏',value: <%=qzdata %> },  
-                {name: '海南',value: <%=qzdata %> },{name: '台湾',value: <%=qzdata %> },  
-                {name: '香港',value: <%=qzdata %> },{name: '澳门',value: <%=qzdata %> }  
+                {name: '北京',value: <%=st.get("北京感染患者") %> },{name: '天津',value: <%=st.get("天津感染患者") %> },  
+                {name: '上海',value: <%=st.get("上海感染患者") %> },{name: '重庆',value: <%=st.get("重庆感染患者") %> },  
+                {name: '河北',value: <%=st.get("河北感染患者") %> },{name: '河南',value: <%=st.get("海南感染患者") %> },  
+                {name: '云南',value: <%=st.get("云南感染患者") %> },{name: '辽宁',value: <%=st.get("辽宁感染患者") %> },  
+                {name: '黑龙江',value: <%=st.get("黑龙江感染患者") %> },{name: '湖南',value: <%=st.get("湖南感染患者") %> },  
+                {name: '安徽',value: <%=st.get("安徽感染患者") %> },{name: '山东',value: <%=st.get("山东感染患者") %> },  
+                {name: '新疆',value: <%=st.get("新疆感染患者") %> },{name: '江苏',value: <%=st.get("江苏感染患者") %> },  
+                {name: '浙江',value: <%=st.get("浙江感染患者") %> },{name: '江西',value: <%=st.get("江西感染患者") %> },  
+                {name: '湖北',value: <%=st.get("湖北感染患者") %> },{name: '广西',value: <%=st.get("广西感染患者") %> },  
+                {name: '甘肃',value: <%=st.get("甘肃感染患者") %> },{name: '山西',value: <%=st.get("山西感染患者") %> },  
+                {name: '内蒙古',value: <%=st.get("内蒙古感染患者") %> },{name: '陕西',value: <%=st.get("陕西感染患者") %> },  
+                {name: '吉林',value: <%=st.get("吉林感染患者") %> },{name: '福建',value: <%=st.get("福建感染患者") %> },  
+                {name: '贵州',value: <%=st.get("贵州感染患者") %> },{name: '广东',value: <%=st.get("广东感染患者") %> },  
+                {name: '青海',value: <%=st.get("青海感染患者") %> },{name: '西藏',value: <%=st.get("西藏感染患者") %> },  
+                {name: '四川',value: <%=st.get("四川感染患者") %> },{name: '宁夏',value: <%=st.get("宁夏感染患者") %> },  
+                {name: '海南',value: <%=st.get("海南感染患者") %> },{name: '台湾',value: <%=st.get("台湾感染患者") %> },  
+                {name: '香港',value: <%=st.get("香港感染患者") %> },{name: '澳门',value: <%=st.get("澳门感染患者") %> }  
             ];
 		var mydata2 = [  
-            {name: '北京',value: <%=ysdata %> },{name: '天津',value: <%=ysdata %> },  
+            {name: '北京',value: <%=st.get("北京疑似患者") %> },{name: '天津',value: <%=st.get("北京疑似患者") %> },  
             {name: '上海',value: <%=ysdata %> },{name: '重庆',value: <%=ysdata %> },  
             {name: '河北',value: <%=ysdata %> },{name: '河南',value: <%=ysdata %> },  
             {name: '云南',value: <%=ysdata %> },{name: '辽宁',value: <%=ysdata %> },  
