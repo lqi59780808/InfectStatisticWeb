@@ -12,6 +12,16 @@
     <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
     <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/湖北详情页/styles.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+    #apDiv1 {
+	position: absolute;
+	width: 271px;
+	height: 41px;
+	z-index: 1;
+	left: 605px;
+	top: 66px;
+}
+    </style>
     <script src="resources/scripts/jquery-3.2.1.min.js"></script>
     <script src="resources/scripts/axure/axQuery.js"></script>
     <script src="resources/scripts/axure/globals.js"></script>
@@ -256,13 +266,16 @@
         </div>
       </div>
 
-     <div id="u27" class="ax_default droplist">
-        <div id="u27_div" class=""></div>
-        <form action="statServlet" method="get">
-        <label for="meeting">约会日期：</label><input id="u27_input" class="u27_input" name="selected" type="date" value=<%=date %>/>
+
+        <div id="apDiv1">
+        <form action="statServlet?flag=mapStat" method="get">
+        <input name="selected" type="date" value=<%=date %> />
+        <input type="hidden" name="flag" value="increase" />
+        <input type="hidden" name="province" value=<%=provin %> />
+        <input type="submit" value="确认" /> 
         </form>
-  </div>
-    <script src="resources/scripts/axure/ios.js"></script>
+        </div>
+    <script src="resources/scripts/axure/ios.js"></script>   
   </body>
   <script type="text/javascript" src="resources/scripts/echarts.min.js" ></script>
   <script type="text/javascript">

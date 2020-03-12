@@ -12,6 +12,24 @@
     <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
     <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/中国地图/styles.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+    #apDiv1 {
+	position: absolute;
+	width: 92px;
+	height: 51px;
+	z-index: 1;
+	left: 366px;
+	top: 367px;
+}
+    #apDiv2 {
+	position: absolute;
+	width: 255px;
+	height: 41px;
+	z-index: 1;
+	left: 279px;
+	top: 355px;
+}
+    </style>
     <script src="resources/scripts/jquery-3.2.1.min.js"></script>
     <script src="resources/scripts/axure/axQuery.js"></script>
     <script src="resources/scripts/axure/globals.js"></script>
@@ -53,7 +71,7 @@
   <body>
   <% Map<String,String> st = (Map)request.getAttribute("stat"); %>
 <% ArrayList<String> in=(ArrayList)request.getAttribute("increase"); %>
-    <div id="base" class="">
+  <div id="base" class="">
 
       <!-- Unnamed (组合) -->
       <div id="u0" class="ax_default" data-left="289" data-top="428" data-width="915" data-height="729">
@@ -150,13 +168,17 @@
         <div id="u14_div" class=""></div>
         <input id="u14_input" type="text" value=<%=st.get("全国死亡") %> class="u14_input"/>
       </div>
-      
-      <div id="u15" class="ax_default droplist">
-        <div id="u15_div" class=""></div>
-        <form action="statServlet?flag=mapStat" method="get">
-        <label for="meeting">约会日期：</label><input id="u15_input" class="u15_input" name="selected" type="date" value="2014-01-13"/>
-        </form>       
-      </div>
+            
+
+         <div id="apDiv2">
+         <form action="statServlet?flag=mapStat" method="get">
+        <input name="selected" type="date" value=<%=(String)request.getAttribute("date") %> />
+        <input type="hidden" name="flag" value="mapStat" />
+        <input type="submit" value="确认" /> 
+        </form> 
+         </div>
+              
+
       
       
       <!-- Unnamed (矩形) -->
@@ -167,9 +189,11 @@
         </div>
       </div>
     </div>
-    <script src="resources/scripts/axure/ios.js"></script>
+  <script src="resources/scripts/axure/ios.js"></script>
+  
     
-  </body>
+    
+</body>
   <script type="text/javascript" src="resources/scripts/echarts.min.js" ></script>
         <script type="text/javascript" src="resources/scripts/china.js" ></script>
         <script type="text/javascript" >
@@ -306,6 +330,10 @@
 		myChart2.setOption(optionMap2);
 		
 		 myChart.on('click',function (params){
+			 if(params.name)
+			 window.location.href="statServlet?flag=increase&province="+params.name;
+		 })
+		 myChart2.on('click',function (params){
 			 if(params.name)
 			 window.location.href="statServlet?flag=increase&province="+params.name;
 		 })

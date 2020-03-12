@@ -9,20 +9,20 @@ public class InfectMap extends InfectStatistic {
 	
 	public static String judgeDate(String date)
 	{
-		if(date != null && fileArray[fileArray.length - 1] .getName().compareTo(dateTime + ".log.txt") < 0) //如果超出比较范围
+		if(date != null && fileArray[fileArray.length - 1] .getName().compareTo(date + ".log.txt") < 0) //如果超出比较范围
 		{
 			date = latestDate();
 			return date;
 		}
 		
-		else if(dateTime != null && fileArray[0] .getName().compareTo(dateTime + ".log.txt") > 0) //如果比最早一天还早的日期，直接结束调用，并进入输出方法即可
+		else if(date != null && fileArray[0] .getName().compareTo(date + ".log.txt") > 0) //如果比最早一天还早的日期，直接结束调用，并进入输出方法即可
 		{
 			return date;
 		}
 		else
 		for (int i = 0 ;i < fileArray.length - 1 ;i++) //检查用户指定日期是否在两个日志文件之间 比如 日志文件只有2020-01-22，2020-01-24，用户却指定2020-01-22
 		{
-			if(fileArray[i] .getName().compareTo(dateTime + ".log.txt") < 0 && fileArray[i + 1] .getName().compareTo(dateTime + ".log.txt") > 0)
+			if(fileArray[i] .getName().compareTo(date + ".log.txt") < 0 && fileArray[i + 1] .getName().compareTo(dateTime + ".log.txt") > 0)
 				date = fileArray[i] .getName().substring(0 , 10);
 			return date;
 		}

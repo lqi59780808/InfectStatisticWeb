@@ -51,7 +51,7 @@ public class StatServlet extends HttpServlet {
 			Map<String, String> stat = InfectMap.allStatistic(selected);
 			request.setAttribute("stat", stat);
 			request.getRequestDispatcher("中国地图.jsp").forward(request, response);
-		}
+		}		
 						
 		else if(flag != null && flag.equals("increase"))
 		{
