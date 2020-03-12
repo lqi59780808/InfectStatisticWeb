@@ -95,19 +95,6 @@
         </select>
       </div>  -->
 
-      <!-- Unnamed (矩形) -->
-      <div id="u6" class="ax_default label">
-        <div id="u6_div" class=""></div>
-        <div id="u6_text" class="text ">
-          
-          <label for="textfield">输入日期:</label>
-          <input type="text" name="textfield" id="textfield" placeholder="如:2020-02-01">
-          <input type="submit" name="submit" id="submit" value="提交">
-          <% String d;
-          
-          if (d=request.getParameter("text"))  %>
-        </div>
-      </div>
 
       <!-- Unnamed (文本框) -->
       <div id="u7" class="ax_default _统计数据">
@@ -155,6 +142,22 @@
       <div id="u14" class="ax_default _统计数据">
         <div id="u14_div" class=""></div>
         <input id="u14_input" type="text" value="2682" class="u14_input"/>
+      </div>
+      
+      <div id="u15" class="ax_default droplist">
+        <div id="u15_div" class=""></div>
+        <form action="statServlet" method="get">
+        <label for="meeting">约会日期：</label><input id="u15_input" class="u15_input" name="selected" type="date" value="2014-01-13"/>
+        </form>
+        
+      </div>
+      
+      <!-- Unnamed (矩形) -->
+      <div id="u5" class="ax_default label">
+        <div id="u5_div" class=""></div>
+        <div id="u5_text" class="text ">
+          <p><span>选择日期</span></p>
+        </div>
       </div>
     </div>
     <script src="resources/scripts/axure/ios.js"></script>

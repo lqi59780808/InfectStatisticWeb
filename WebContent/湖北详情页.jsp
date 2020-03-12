@@ -241,15 +241,20 @@
         </div>
       </div>
 
-      <!-- Unnamed (下拉列表) -->
       <!-- Unnamed (矩形) -->
-      <div id="u27" class="ax_default label">
-        <div id="u27_div" class=""></div>
-<label for="textfield">输入日期:</label>
-        <input type="text" name="textfield" id="textfield" placeholder="如:2020-02-01">
-        <input type="submit" name="submit" id="submit" value="确定">
+      <div id="u26" class="ax_default label">
+        <div id="u26_div" class=""></div>
+        <div id="u26_text" class="text ">
+          <p><span>选择日期</span></p>
+        </div>
       </div>
-</div>
+
+     <div id="u27" class="ax_default droplist">
+        <div id="u27_div" class=""></div>
+        <form action="statServlet" method="get">
+        <label for="meeting">约会日期：</label><input id="u27_input" class="u27_input" name="selected" type="date" value="2014-01-13"/>
+        </form>
+  </div>
     <script src="resources/scripts/axure/ios.js"></script>
   </body>
   <script type="text/javascript" src="resources/scripts/echarts.min.js" ></script>

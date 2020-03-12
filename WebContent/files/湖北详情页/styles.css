@@ -2198,51 +2198,92 @@
   text-transform:none;
   visibility:hidden;
 }
-#u26_input {
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:148px;
-  height:19px;
-  padding:3px 2px 3px 2px;
-  font-family:'Arial Normal', 'Arial', sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:13px;
-  letter-spacing:normal;
-  color:#000000;
-  vertical-align:none;
-  text-align:left;
-  text-transform:none;
-  background-color:transparent;
-  border-color:transparent;
-}
-#u26_input.disabled {
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:148px;
-  height:19px;
-  padding:3px 2px 3px 2px;
-  font-family:'Arial Normal', 'Arial', sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:13px;
-  letter-spacing:normal;
-  color:#000000;
-  vertical-align:none;
-  text-align:left;
-  text-transform:none;
-  background-color:transparent;
-  border-color:transparent;
-}
 #u26_div {
   border-width:0px;
   position:absolute;
   left:0px;
   top:0px;
-  width:148px;
-  height:19px;
+  width:130px;
+  height:30px;
+  background:inherit;
+  background-color:rgba(255, 255, 255, 0);
+  border:none;
+  border-radius:0px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+  font-size:28px;
+}
+#u26 {
+  border-width:0px;
+  position:absolute;
+  left:439px;
+  top:54px;
+  width:130px;
+  height:30px;
+  display:flex;
+  font-size:28px;
+}
+#u26 .text {
+	position: absolute;
+	align-self: flex-start;
+	padding: 0px 0px 0px 0px;
+	box-sizing: border-box;
+	width: 157px;
+	height: 28px;
+	left: -9px;
+	top: -5px;
+}
+#u26_text {
+  border-width:0px;
+  word-wrap:break-word;
+  text-transform:none;
+}
+#u27_input {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:136px;
+  height:22px;
+  padding:3px 2px 3px 2px;
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  letter-spacing:normal;
+  color:#000000;
+  vertical-align:none;
+  text-align:left;
+  text-transform:none;
+  background-color:transparent;
+  border-color:transparent;
+}
+#u27_input.disabled {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:136px;
+  height:22px;
+  padding:3px 2px 3px 2px;
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  letter-spacing:normal;
+  color:#000000;
+  vertical-align:none;
+  text-align:left;
+  text-transform:none;
+  background-color:transparent;
+  border-color:transparent;
+}
+#u27_div {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:136px;
+  height:22px;
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
@@ -2254,29 +2295,29 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-#u26 {
-  border-width:0px;
-  position:absolute;
-  left:442px;
-  top:78px;
-  width:148px;
-  height:19px;
-  display:flex;
+#u27 {
+	border-width: 0px;
+	position: absolute;
+	left: 593px;
+	top: 60px;
+	width: 136px;
+	height: 22px;
+	display: flex;
 }
-#u26 .text {
+#u27 .text {
   position:absolute;
   align-self:flex-start;
   padding:2px 2px 2px 2px;
   box-sizing:border-box;
   width:100%;
 }
-#u26_div.disabled {
+#u27_div.disabled {
   border-width:0px;
   position:absolute;
   left:0px;
   top:0px;
-  width:148px;
-  height:19px;
+  width:136px;
+  height:22px;
   background:inherit;
   background-color:rgba(240, 240, 240, 1);
   box-sizing:border-box;
@@ -2288,48 +2329,7 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-#u26.disabled {
+#u27.disabled {
 }
-.u26_input_option {
-}
-#u27_div {
-	border-width: 0px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 220px;
-	height: 99px;
-	background: inherit;
-	background-color: rgba(255, 255, 255, 0);
-	border: none;
-	border-radius: 0px;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	font-size: 28px;
-	right: 34px;
-	bottom: 73px;
-}
-#u27 {
-	border-width: 0px;
-	position: absolute;
-	left: 442px;
-	top: 29px;
-	width: 355px;
-	height: 30px;
-	display: flex;
-	font-size: 28px;
-	right: 127px;
-}
-#u27 .text {
-  position:absolute;
-  align-self:flex-start;
-  padding:0px 0px 0px 0px;
-  box-sizing:border-box;
-  width:100%;
-}
-#u27_text {
-  border-width:0px;
-  word-wrap:break-word;
-  text-transform:none;
+.u27_input_option {
 }
