@@ -35,27 +35,22 @@ public class StatServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String flag = request.getParameter("flag");
-		String date = request.getParameter("date");
+		String selected = request.getParameter("selected");
 		String province = request.getParameter("province");
-		if(date == null)
+		if(selected == null)
 		{
-			date = InfectMap.latestDate();
+			selected = InfectMap.latestDate();
 		}
 		if(flag != null && flag.equals("mapStat"))
 		{
-			Map<String, String> stat = InfectMap.allStatistic(date);
+			Map<String, String> stat = InfectMap.allStatistic(selected);
 			request.setAttribute("stat", stat);
 			request.getRequestDispatcher("test2.jsp").forward(request, response);
 		}
-		
-		else if(flag != null && flag.equals("dateSet"))
-		{
-			
-		}
-				
+						
 		else if(flag != null && flag.equals("increase"))
 		{
-			ArrayList<String> increase = InfectMap.compare(province, date);
+			ArrayList<String> increase = InfectMap.compare(province, selected);
 			request.setAttribute("increase", increase);
 		}
 	}
