@@ -33,13 +33,24 @@ public class StatServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String flag = request.getParameter("flag");
 		String date = request.getParameter("date");
 		String province = request.getParameter("province");
+		if(date == null)
+		{
+			date = InfectMap.latestDate();
+		}
 		if(flag != null && flag.equals("mapStat"))
 		{
 			Map<String, String> stat = InfectMap.allStatistic(date);
 			request.setAttribute("stat", stat);
+			request.getRequestDispatcher("test2.jsp").forward(request, response);
+		}
+		
+		else if(flag != null && flag.equals("dateSet"))
+		{
+			
 		}
 				
 		else if(flag != null && flag.equals("increase"))

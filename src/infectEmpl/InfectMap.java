@@ -8,6 +8,11 @@ public class InfectMap extends InfectStatistic {
 	public static File filename;
 	public static String date;
 	
+	public static void judgeDate(String date) 
+	{
+		String str = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
+	}
+	
 	public static ArrayList<String> getDate()
 	{
 		String shuru = "D:/log/";
