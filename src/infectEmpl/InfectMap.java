@@ -6,9 +6,11 @@ import java.text.Collator;
 public class InfectMap extends InfectStatistic {
 	
 	public static File filename;
+	public static String path; 
 	
 	public static String judgeDate(String date)
 	{
+		reading();
 		if(date != null && fileArray[fileArray.length - 1] .getName().compareTo(date + ".log.txt") < 0) //如果超出比较范围
 		{
 			date = latestDate();
@@ -32,11 +34,7 @@ public class InfectMap extends InfectStatistic {
 	
 	public static ArrayList<String> getDate()
 	{
-		String shuru = "D:/log/";
-		String shuchu = "D:/output.txt";
-		String[] str = {"list","-log", shuru , "-out", shuchu};
-		readList(str);
-		readDirect();
+		reading();
 		ArrayList<String> array = new ArrayList<String> ();	
 		for(int i = fileArray.length - 7 ; i < fileArray.length; i++)
 		{
@@ -48,17 +46,14 @@ public class InfectMap extends InfectStatistic {
 	
 	public static String latestDate()
 	{
-		String shuru = "D:/log/";
-		String shuchu = "D:/output.txt";
-		String[] str = {"list","-log", shuru , "-out", shuchu};
-		readList(str);
-		readDirect();
+		reading();
 		return fileArray[fileArray.length - 1].getName().substring(0,10);
 	}
 	
 	public static void reading()
 	{
-		String shuru = "D:/log/";
+		InfectMap a = new InfectMap();
+		String shuru = path;
 		String shuchu = "D:/output.txt";
 		String[] str = {"list","-log", shuru , "-out", shuchu};
 		readList(str);
@@ -81,10 +76,6 @@ public class InfectMap extends InfectStatistic {
 		}
 		sortMap = sortHashkey();
 		countryStatic();
-		for(String key : statistic.keySet())
-		{
-				System.out.println(key+" "+statistic.get(key));  //避免在最后多出一行			
-		}
 		Map<String, String> sta = statistic;
 		return sta;
 		
@@ -92,6 +83,7 @@ public class InfectMap extends InfectStatistic {
 	
 	public static ArrayList<String> compare(String province,String date) throws FileNotFoundException
 	{
+		judgeDate= false;
 		dateTime = date;
 		reading();
 		ArrayList<String> array = new ArrayList<String> ();
@@ -99,6 +91,9 @@ public class InfectMap extends InfectStatistic {
 		{
 			array.add("0");
 		}
+		if(judgeDate) //true说明比统计文件的最早日期还早
+			return array;
+		
 		if(date == null)
 			filename = fileArray[fileArray.length - 1];
 		else
@@ -176,9 +171,6 @@ public class InfectMap extends InfectStatistic {
 	
 	public static void main(String args[]) throws FileNotFoundException
 	{
-		ArrayList<String> a = compare("内蒙古" , null);
-		for(String str: a)
-			System.out.println(str);
 		return;
 	}
 }

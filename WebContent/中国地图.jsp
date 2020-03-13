@@ -256,11 +256,11 @@
                     x: 'left',  
                     y: 'center',  
                     splitList: [   
-                        {start: 500, end: 600},{start: 400, end: 500},  
-                        {start: 300, end: 400},{start: 200, end: 300},  
-                        {start: 100, end: 200},{start: 0, end: 100},  
+                    	{start: 10000},  
+                        {start: 1000, end: 9999},{start: 100, end: 999},  
+                        {start: 10, end: 99},{start: 1, end: 9},{start:0, end: 0}  
                     ],  
-                    color: ['#ff0000', '#ff3322', '#ff6644','#ff9966', '#ffcc88', '#ffeeaa']  
+                    color: ['#8e2323', '#bc1717', '#ff3322','#ff9966', '#ffcc88', '#ffffff']  
                 },  
                 
                 //配置属性
@@ -297,11 +297,11 @@
 	                    x: 'left',  
 	                    y: 'center',  
 	                    splitList: [   
-	                        {start: 500, end: 600},{start: 400, end: 500},  
-	                        {start: 300, end: 400},{start: 200, end: 300},  
-	                        {start: 100, end: 200},{start: 0, end: 100},  
+	                        {start: 10000},  
+	                        {start: 1000, end: 9999},{start: 100, end: 999},  
+	                        {start: 10, end: 99},{start: 1, end: 9},{start:0 , end: 0}  
 	                    ],  
-	                    color: ['#ff0000', '#ff3322', '#ff6644','#ff9966', '#ffcc88', '#ffeeaa']  
+	                    color: ['#8e2323', '#bc1717', '#ff3322','#ff9966', '#ffcc88', '#ffffff']  
 	                },  
 	                
 	                //配置属性

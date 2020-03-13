@@ -64,7 +64,8 @@
   <% ArrayList<String> in=(ArrayList)request.getAttribute("increase"); %>
   <% Map<String,String> st = (Map)request.getAttribute("stat"); %>
   <% String date=(String)request.getAttribute("date"); %>
-  
+  <% ArrayList<ArrayList<String>> allIncrese= (ArrayList)request.getAttribute("allIncrease"); %>
+  <% ArrayList<String> allDate=(ArrayList)request.getAttribute("allDate"); %>
     <div id="base" class="">
 
       <!-- Unnamed (矩形) -->
@@ -278,48 +279,118 @@
     <script src="resources/scripts/axure/ios.js"></script>   
   </body>
   <script type="text/javascript" src="resources/scripts/echarts.min.js" ></script>
-  <script type="text/javascript">
+         <script type="text/javascript">
 var dom = document.getElementById("u18_state0");
 var myChart = echarts.init(dom);
 var app = {};
+data = [<% 
+    for(int i = 0 ; i < allDate.size() ; i++)
+    {
+    	%> [ "<%=allDate.get(i) %>" , <%=allIncrese.get(i).get(0) %> ],
+    <%	
+    }
+%>];
+
+var dateList = data.map(function (item) {
+    return item[0];
+});
+var valueList = data.map(function (item) {
+    return item[1];
+});
 option = null;
 option = {
+    title: {
+        text: '感染患者新增趋势图'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['人数']
+    },
+    grid: {
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: false,
+        data: dateList
     },
     yAxis: {
         type: 'value'
     },
-    series: [{
-        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
-        	<%=1 %>, <%=1 %>, <%=1 %>],
-        type: 'line'
-    }]
+    series: [
+        {
+            name: '人数',
+            type: 'line',
+            stack: '总量',
+            data: valueList
+        }
+    ]
 };
 ;
 if (option && typeof option === "object") {
     myChart.setOption(option, true);
 }
        </script>
-       <script type="text/javascript">
+<script type="text/javascript">
 var dom = document.getElementById("u18_state1");
 var myChart = echarts.init(dom);
 var app = {};
+data = [<% 
+    for(int i = 0 ; i < allDate.size() ; i++)
+    {
+    	%> [ "<%=allDate.get(i) %>" , <%=allIncrese.get(i).get(1) %> ],
+    <%	
+    }
+%>];
+
+var dateList = data.map(function (item) {
+    return item[0];
+});
+var valueList = data.map(function (item) {
+    return item[1];
+});
 option = null;
 option = {
+    title: {
+        text: '疑似患者新增趋势图'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['人数']
+    },
+    grid: {
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: false,
+        data: dateList
     },
     yAxis: {
         type: 'value'
     },
-    series: [{
-        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
-        	<%=1 %>, <%=1 %>, <%=1 %>],
-        type: 'line'
-    }]
+    series: [
+        {
+            name: '人数',
+            type: 'line',
+            stack: '总量',
+            data: valueList
+        }
+    ]
 };
 ;
 if (option && typeof option === "object") {
@@ -330,20 +401,55 @@ if (option && typeof option === "object") {
 var dom = document.getElementById("u18_state2");
 var myChart = echarts.init(dom);
 var app = {};
+data = [<% 
+    for(int i = 0 ; i < allDate.size() ; i++)
+    {
+    	%> [ "<%=allDate.get(i) %>" , <%=allIncrese.get(i).get(2) %> ],
+    <%	
+    }
+%>];
+
+var dateList = data.map(function (item) {
+    return item[0];
+});
+var valueList = data.map(function (item) {
+    return item[1];
+});
 option = null;
 option = {
+    title: {
+        text: '治愈变化趋势图'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['人数']
+    },
+    grid: {
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: false,
+        data: dateList
     },
     yAxis: {
         type: 'value'
     },
-    series: [{
-        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
-        	<%=1 %>, <%=1 %>, <%=1 %>],
-        type: 'line'
-    }]
+    series: [
+        {
+            name: '人数',
+            type: 'line',
+            stack: '总量',
+            data: valueList
+        }
+    ]
 };
 ;
 if (option && typeof option === "object") {
@@ -354,20 +460,55 @@ if (option && typeof option === "object") {
 var dom = document.getElementById("u18_state3");
 var myChart = echarts.init(dom);
 var app = {};
+data = [<% 
+    for(int i = 0 ; i < allDate.size() ; i++)
+    {
+    	%> [ "<%=allDate.get(i) %>" , <%=allIncrese.get(i).get(3) %> ],
+    <%	
+    }
+%>];
+
+var dateList = data.map(function (item) {
+    return item[0];
+});
+var valueList = data.map(function (item) {
+    return item[1];
+});
 option = null;
 option = {
+    title: {
+        text: '死亡变化趋势图'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['人数']
+    },
+    grid: {
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
     xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: false,
+        data: dateList
     },
     yAxis: {
         type: 'value'
     },
-    series: [{
-        data: [<%=1 %>, <%=1 %>, <%=1 %>, <%=1 %>,
-        	<%=1 %>, <%=1 %>, <%=1 %>],
-        type: 'line'
-    }]
+    series: [
+        {
+            name: '人数',
+            type: 'line',
+            stack: '总量',
+            data: valueList
+        }
+    ]
 };
 ;
 if (option && typeof option === "object") {

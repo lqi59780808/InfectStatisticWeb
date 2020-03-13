@@ -20,6 +20,7 @@ public class InfectStatistic {
 	public static Map<String , String> typeMap; //用于保存sp ip对应的类型关系
 	public static File fileArray[];          //保存所有日志文件的路径
 	public static FileWriter fileWritter; //用于输出流
+	public static boolean judgeDate;
 	
 	public static void readList(String args[])
 	/*
@@ -133,6 +134,7 @@ public class InfectStatistic {
 		
 		else if(dateTime != null && fileArray[0] .getName().compareTo(dateTime + ".log.txt") > 0) //如果比最早一天还早的日期，直接结束调用，并进入输出方法即可
 		{
+			judgeDate = true;
 			return; 
 		}
 		
