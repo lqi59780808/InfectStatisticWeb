@@ -9,6 +9,9 @@ public class InfectMap extends InfectStatistic {
 	public static String path; 
 	
 	public static String judgeDate(String date)
+	/*
+	 * 判断日期是否超出或早于统计日期
+	 */
 	{
 		reading();
 		if(date != null && fileArray[fileArray.length - 1] .getName().compareTo(date + ".log.txt") < 0) //如果超出比较范围
@@ -33,6 +36,9 @@ public class InfectMap extends InfectStatistic {
 
 	
 	public static ArrayList<String> getDate()
+	/*
+	 * 获取最新的七天日期
+	 */
 	{
 		reading();
 		ArrayList<String> array = new ArrayList<String> ();	
@@ -45,12 +51,18 @@ public class InfectMap extends InfectStatistic {
 	}
 	
 	public static String latestDate()
+	/*
+	 * 获取最新统计的日期
+	 */
 	{
 		reading();
 		return fileArray[fileArray.length - 1].getName().substring(0,10);
 	}
 	
 	public static void reading()
+	/*
+	 * 读取并统计文件
+	 */
 	{
 		InfectMap a = new InfectMap();
 		String shuru = path;
@@ -61,6 +73,9 @@ public class InfectMap extends InfectStatistic {
 	}
 	
 	public static Map<String, String> allStatistic (String date)
+	/*
+	 * 统计出所有省份的数据
+	 */
 	{
 		dateTime = date;
 		reading();
@@ -82,6 +97,9 @@ public class InfectMap extends InfectStatistic {
 	}
 	
 	public static ArrayList<String> compare(String province,String date) throws FileNotFoundException
+	/*
+	 * 统计每个省份某个日期的变化趋势
+	 */
 	{
 		judgeDate= false;
 		dateTime = date;

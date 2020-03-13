@@ -35,24 +35,24 @@ public class StatServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 			
 		
-		String flag = request.getParameter("flag");
-		String selected = request.getParameter("selected");
-		String province = request.getParameter("province");
-		String abpath = getServletContext().getRealPath("/log/");		
-		if(selected == null)
+		String flag = request.getParameter("flag");  //判断跳转信息
+		String selected = request.getParameter("selected"); //判断选择的日期
+		String province = request.getParameter("province"); //判断选择的省份
+		String abpath = getServletContext().getRealPath("/log/"); //获取web根目录下的路径	
+		if(selected == null) 
 		{
 			InfectMap infect = new InfectMap();	
 			infect.path = abpath;
-			selected = infect.latestDate();
+			selected = infect.latestDate(); //获取最新日期
 		}
 		else
 		{
 			InfectMap infect = new InfectMap();	
 			infect.path = abpath;
-			selected = infect.judgeDate(selected);
+			selected = infect.judgeDate(selected); //判断是否超出或早于统计的日期
 		}
 		request.setAttribute("date", selected);
-		if(flag != null && flag.equals("mapStat"))
+		if(flag != null && flag.equals("mapStat"))  //跳转地图页面
 		{		
 			InfectMap infect = new InfectMap();	
 			infect.path = abpath;
@@ -63,7 +63,7 @@ public class StatServlet extends HttpServlet {
 			request.getRequestDispatcher("中国地图.jsp").forward(request, response);
 		}		
 						
-		else if(flag != null && flag.equals("increase"))
+		else if(flag != null && flag.equals("increase"))  //跳转详情页面
 		{
 			InfectMap infect = new InfectMap();	
 			infect.path = abpath;
