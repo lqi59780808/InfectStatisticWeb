@@ -19,5 +19,5 @@
    * 环境不符合有构建运行失败的可能性，请注意
    * 推荐->通过Eclipse构建
        * 在Eclipse新建Dynamic Java Project项目，然后将WebContent和src目录覆盖，通过tomcat启动项目即可运行项目
-       * 然后用该项目的两个文件夹将新建项目的WebContent和src目录覆盖，或者将文件导入对应文件夹通过tomcat启动项目即可运行项目
+       * 然后用该项目的两个文件夹将新建项目的WebContent和src目录覆盖
        * 通过tomcat启动项目即可运行项目
