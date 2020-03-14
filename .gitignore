@@ -3,7 +3,6 @@
 *.classpath
 *.project
 *.settings
-*.classes
 *.idea
 *.iml
 
@@ -29,3 +28,4 @@
 hs_err_pid*
 /bin/
 /target/
+/build/
