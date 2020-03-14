@@ -18,6 +18,6 @@
    * 此项目的WebContent为Web根目录，src里面的包为Java接口用的包，用Eclipse以外的IDE请根据需要将内容导入即可
    * 环境不符合有构建运行失败的可能性，请注意
    * 推荐->通过Eclipse构建
-       * 在Eclipse新建Dynamic Java Project项目，然后将WebContent和src目录覆盖，通过tomcat启动项目即可运行项目
-       * 然后用该项目的两个文件夹将新建项目的WebContent和src目录覆盖
+       * 在Eclipse新建Dynamic Java Project项目
+       * 然后用该项目的两个文件夹将新建项目的WebContent和src目录覆盖，也可以把文件夹里的内容导入进对应文件夹
        * 通过tomcat启动项目即可运行项目
